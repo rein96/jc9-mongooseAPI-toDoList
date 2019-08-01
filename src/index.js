@@ -10,23 +10,25 @@ const Task = require('./models/task');  // const Task = mongoose.model('Task', t
 
 // const URL = 'mongodb://127.0.0.1:27017/jc-mongoose'
 // jc-mongoose = nama database
-// mongoose.connect('mongodb+srv://rein96:rein96@to-do-list-reactmongoose-0jgcu.mongodb.net/reinhart-todolist-react-mongoose?retryWrites=true&w=majority', {
-//     // mongoose.connect('mongodb://127.0.0.1:27017/jc-mongoose', {
-//     useNewUrlParser: true,
-//     // ensureIndex() -> default mongoose (deprecated )  ----> now recommended version: createIndex()
-//     useCreateIndex: true
-// })
-
-// mongoose.connect('mongodb+srv://rein96:rein96@to-do-list-reactmongoose-0jgcu.mongodb.net/reinhart-todolist-react-mongoose?retryWrites=true&w=majority', {
-mongoose.connect('mongodb://127.0.0.1:27017/jc-mongoose', {
+mongoose.connect('mongodb+srv://rein96:rein96@to-do-list-reactmongoose-0jgcu.mongodb.net/reinhart-todolist-react-mongoose?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     // ensureIndex() -> default mongoose (deprecated )  ----> now recommended version: createIndex()
     useCreateIndex: true
 })
+
+// mongoose.connect('mongodb+srv://rein96:rein96@to-do-list-reactmongoose-0jgcu.mongodb.net/reinhart-todolist-react-mongoose?retryWrites=true&w=majority', {
+// mongoose.connect('mongodb://127.0.0.1:27017/jc-mongoose', {
+    // useNewUrlParser: true,
+    // ensureIndex() -> default mongoose (deprecated )  ----> now recommended version: createIndex()
+    // useCreateIndex: true
+// })
+
 // mongoose gak perlu function callback (parameter ke3 di mongoDB)
 
 const app = express();
-const port = 2019;
+
+// give access port to heroku or 2019 as localhost
+const port = process.env.PORT || 2019;
 
 // To prevent CORS ERROR when front-end do http request( axios )
 app.use(cors())
